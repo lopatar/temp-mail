@@ -1,0 +1,22 @@
+{
+    "name": "lopatar/php-sdk",
+    "autoload": {
+        "psr-4": {
+            "sdk\\": "sdk/",
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jiří Lopatář",
+            "email": "jiri@lopatar.me"
+        }
+    ],
+    "require": {
+        "ext-mysqli": "*",
+        "ext-openssl": "*",
+        "ext-curl": "*",
+        "ext-json": "*",
+    },
+    "description": "PHP SDK written to better understand PHP frameworks!"
+}
