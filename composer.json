@@ -14,9 +14,7 @@
     ],
     "require": {
         "ext-mysqli": "*",
-        "ext-openssl": "*",
-        "ext-curl": "*",
-        "ext-json": "*",
+        "ext-openssl": "*"
     },
     "description": "PHP SDK written to better understand PHP frameworks!"
 }
