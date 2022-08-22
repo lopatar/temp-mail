@@ -1,6 +1,6 @@
 create table email(
     id int not null auto_increment primary key,
-    username varchar not null unique key,
-    password varchar not null,
-    expires int not null
+    username varchar(12) not null unique key,
+    password varchar(32) not null,
+    expires int(10) not null
 );
