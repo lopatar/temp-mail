@@ -7,6 +7,7 @@ abstract class config
 {
 	/* Mail configuration */
 	const MAIL_DOMAIN = '<MAIL-DOMAIN>';
+	const MAIL_ACCOUNT_EXPIRES = 3600; //seconds
 
 	/* RoundCube configuration */
 	const ROUNDCUBE_LINK = '<ROUNDCUBE-LINK>';

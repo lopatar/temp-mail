@@ -15,6 +15,8 @@ abstract class routes
 		self::$header_middleware = new header;
 		$app->add_middleware(self::$header_middleware);
 
-		$app->get('/', 'app\\controllers\\main::render');
+		$app->get('/', 'app\controllers\main::render');
+
+		$app->post('/api/generate', 'app\controllers\main::handle');
 	}
 }
