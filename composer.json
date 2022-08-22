@@ -1,5 +1,5 @@
 {
-    "name": "lopatar/php-sdk",
+    "name": "lopatar/temp-mail",
     "autoload": {
         "psr-4": {
             "sdk\\": "sdk/",
@@ -16,5 +16,5 @@
         "ext-mysqli": "*",
         "ext-openssl": "*"
     },
-    "description": "PHP SDK written to better understand PHP frameworks!"
+    "description": "Personal temp mail service"
 }
