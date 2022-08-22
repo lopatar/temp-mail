@@ -18,7 +18,7 @@ abstract class utils
 	public static function run_sys_command(string $command): array
 	{
 		$command .= ' 2>&1';
-		echo $command;
+
 		$output = [];
 		exec($command, $output);
 		return $output;
