@@ -76,7 +76,7 @@ final class mail_account
 			return;
 		}
 
-		utils::run_sys_command("/usr/sbin/useradd -G mail -p $(openssl passwd -1 $this->password) $this->username");
+		utils::run_sys_command("/usr/sbin/useradd -G mail -m -p $(openssl passwd -1 $this->password) $this->username");
 	}
 
 	/**
@@ -84,7 +84,7 @@ final class mail_account
 	 */
 	public function exists_system_user(): bool
 	{
-		$output = utils::run_sys_command("id -u $this->username");
+		$output = utils::run_sys_command("/usr/bin/id -u $this->username");
 		return !str_contains($output[0], 'no such user');
 	}
 
@@ -98,7 +98,7 @@ final class mail_account
 			return;
 		}
 
-		utils::run_sys_command("deluser $this->username");
+		utils::run_sys_command("/usr/sbin/deluser $this->username");
 		connection::get()->query('DELETE FROM mail WHERE username=?', [$this->username]);
 	}
 }
