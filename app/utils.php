@@ -12,7 +12,14 @@ abstract class utils
 			$length = 2;
 		}
 
-		return bin2hex(openssl_random_pseudo_bytes($length / 2));
+		$string = '';
+
+		for ($i = 0; $i < $length; $i++)
+		{
+			$string .= self::ALPHABET[random_int(0, self::ALPHABET_LENGTH - 1)];
+		}
+
+		return $string;
 	}
 
 	public static function run_sys_command(string $command): array
@@ -23,4 +30,7 @@ abstract class utils
 		exec($command, $output);
 		return $output;
 	}
+
+	const ALPHABET = 'abcdefghilkmnopqrstuvwxyz';
+	const ALPHABET_LENGTH = 25;
 }
