@@ -20,7 +20,7 @@ abstract class utils
 		$command = escapeshellcmd($command) . ' 2>&1';
 
 		$output = [];
-		exec($command);
+		exec($command, $output);
 		return $output;
 	}
 }
