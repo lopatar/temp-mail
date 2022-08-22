@@ -43,7 +43,7 @@ final class mail_account
 
 	public static function exists(string $username): bool
 	{
-		return connection::get()->query('SELECT id FROM email WHERE username=?', [$username])->num_rows === 1;
+		return connection::get()->query('SELECT id FROM mail WHERE username=?', [$username])->num_rows === 1;
 	}
 
 	public function get_expires_string(): string
@@ -94,6 +94,6 @@ final class mail_account
 		}
 
 		utils::run_sys_command("deluser $this->username");
-		connection::get()->query('DELETE FROM email WHERE username=?', [$this->username]);
+		connection::get()->query('DELETE FROM mail WHERE username=?', [$this->username]);
 	}
 }
