@@ -6,6 +6,7 @@ namespace app\models;
 use app\config;
 use app\database\connection;
 use app\utils;
+use Exception;
 
 final class mail_account
 {
@@ -56,13 +57,34 @@ final class mail_account
 		return time() >= $this->expires_timestamp;
 	}
 
-	public function delete(): void
-	{
-		connection::get()->query('DELETE FROM email WHERE username=?', [$this->username]);
-	}
-
 	public function get_roundcube_link(): string
 	{
 		return config::ROUNDCUBE_LINK . '?' . config::ROUNDCUBE_USER_PARAM . "=$this->username";
+	}
+
+	/**
+	 * Can be only called as root!
+	 */
+	public function create_system_user(): void
+	{
+
+	}
+
+	/**
+	 * Can be only called as root!
+	 */
+	public function exists_system_user(): bool
+	{
+		$output = utils::run_sys_command("id -u $this->username");
+		return !str_contains($output[0], 'no such user');
+	}
+
+	/**
+	 * Can be only called as root!
+	 */
+	public function delete(): void
+	{
+		utils::run_sys_command("deluser $this->username");
+		connection::get()->query('DELETE FROM email WHERE username=?', [$this->username]);
 	}
 }
