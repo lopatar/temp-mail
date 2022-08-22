@@ -6,7 +6,6 @@ namespace app\models;
 use app\config;
 use app\database\connection;
 use app\utils;
-use Exception;
 
 final class mail_account
 {

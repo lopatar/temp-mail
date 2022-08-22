@@ -7,7 +7,7 @@ Currently redirects to own [RoundCube](https://roundcube.net) instance for recei
 
 # Requirements
 - PHP 8.1
-- MySQL server
+- MySQL/MariDB server
 - Web server
 - useradd, deluser & cron packages
 
@@ -21,7 +21,7 @@ Currently redirects to own [RoundCube](https://roundcube.net) instance for recei
 
 # Cron jobs
 
-You should setup a cron job that invokes the app/cron/sys_accounts.php file using the PHP interpreter.
+You should set up a cron job that invokes the app/cron/sys_accounts.php file using the PHP interpreter.
 
 Such as:
 ```
