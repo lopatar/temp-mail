@@ -58,7 +58,12 @@ final class mail_account
 
 	public function get_roundcube_link(): string
 	{
-		return config::ROUNDCUBE_LINK . '?' . config::ROUNDCUBE_USER_PARAM . "=$this->username@" . config::MAIL_DOMAIN;
+		return config::ROUNDCUBE_LINK . '?' . config::ROUNDCUBE_USER_PARAM . '=' . $this->get_email_address();
+	}
+
+	public function get_email_address(): string
+	{
+		return "$this->username@" . config::MAIL_DOMAIN;
 	}
 
 	/**
