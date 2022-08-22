@@ -6,6 +6,7 @@ Currently redirects to own [RoundCube](https://roundcube.net) instance for recei
 **IMAP support planned soon.**
 
 # Requirements
+- Debian 11
 - PHP 8.1
 - MySQL/MariDB server
 - Web server
