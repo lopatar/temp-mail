@@ -27,6 +27,20 @@ final class mail_account
 		return new self($username, $password, $expires);
 	}
 
+	public static function get_all(): array
+	{
+		$query = connection::get()->query('SELECT username,password,expires FROM mail');
+		$data = $query->fetch_all(1);
+		$accounts = [];
+
+		foreach ($data as $entry)
+		{
+			$accounts[] = new self($entry['username'], $entry['password'], $entry['expires']);
+		}
+
+		return $accounts;
+	}
+
 	public static function exists(string $username): bool
 	{
 		return connection::get()->query('SELECT id FROM email WHERE username=?', [$username])->num_rows === 1;
