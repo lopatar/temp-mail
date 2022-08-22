@@ -76,11 +76,11 @@ final class mail_account
 			return;
 		}
 
-		utils::run_sys_command("useradd -G mail -p $(openssl passwd -1 $this->password) $this->username");
+		utils::run_sys_command("/usr/sbin/useradd -G mail -p $(openssl passwd -1 $this->password) $this->username");
 	}
 
 	/**
-	 * Can be only called as root!
+	 * Can be only called as root
 	 */
 	public function exists_system_user(): bool
 	{
