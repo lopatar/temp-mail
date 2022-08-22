@@ -67,7 +67,12 @@ final class mail_account
 	 */
 	public function create_system_user(): void
 	{
+		if ($this->exists_system_user())
+		{
+			return;
+		}
 
+		utils::run_sys_command("useradd -G mail -p $(openssl passwd -1 $this->password) $this->username");
 	}
 
 	/**
@@ -84,6 +89,11 @@ final class mail_account
 	 */
 	public function delete(): void
 	{
+		if (!$this->exists_system_user())
+		{
+			return;
+		}
+
 		utils::run_sys_command("deluser $this->username");
 		connection::get()->query('DELETE FROM email WHERE username=?', [$this->username]);
 	}
