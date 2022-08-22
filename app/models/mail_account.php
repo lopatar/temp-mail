@@ -22,7 +22,7 @@ final class mail_account
 		$password = utils::random_string(32);
 		$expires = time() + config::MAIL_ACCOUNT_EXPIRES;
 
-		connection::get()->query('INSERT INTO mail(username, password, expires) VALUES(?,?,?)', [$username, $password, $expires]);
+		connection::get()->query('INSERT INTO mail(username, password, expires) VALUES(?,?,?)', [$username, $password, $expires], 'ssi');
 
 		return new self($username, $password, $expires);
 	}
