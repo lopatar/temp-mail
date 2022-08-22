@@ -15,7 +15,7 @@ Currently redirects to own [RoundCube](https://roundcube.net) instance for recei
 # Installation
 
 - Clone repository
-- Make your web server matches all requests to index.php (in NGINX with try_files directive)
+- Make your web server match all requests to index.php (in NGINX with try_files directive)
 - Import DB schema
 - Edit app/config.php
 - Install cron job
