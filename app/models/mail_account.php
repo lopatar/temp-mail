@@ -37,6 +37,11 @@ final class mail_account
 		return date('F j, Y, g:i a', $this->expires_timestamp);
 	}
 
+	public function is_expired(): bool
+	{
+		return time() >= $this->expires_timestamp;
+	}
+
 	public function delete(): void
 	{
 		connection::get()->query('DELETE FROM email WHERE username=?', [$this->username]);
