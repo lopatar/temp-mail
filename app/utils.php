@@ -17,10 +17,10 @@ abstract class utils
 
 	public static function run_sys_command(string $command): array
 	{
-		$command .= ' 2>&1';
+		$command = escapeshellcmd($command) . ' 2>&1';
 
 		$output = [];
-		exec(escapeshellcmd($command), $output);
+		exec($command);
 		return $output;
 	}
 }
