@@ -60,4 +60,9 @@ final class mail_account
 	{
 		connection::get()->query('DELETE FROM email WHERE username=?', [$this->username]);
 	}
+
+	public function get_roundcube_link(): string
+	{
+		return config::ROUNDCUBE_LINK . '?' . config::ROUNDCUBE_USER_PARAM . "=$this->username";
+	}
 }

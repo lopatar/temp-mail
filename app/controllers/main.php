@@ -20,7 +20,8 @@ final class main implements controller
 
 	public static function handle(request $request, response $response, array $args): response
 	{
-		$account = mail_account::generate();
+		$view = new view('generate.php');
+		$response->get_body()->set_view($view);
 		return $response;
 	}
 }
