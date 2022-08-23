@@ -5,6 +5,12 @@ namespace app;
 
 abstract class config
 {
+	/* HTTP basic auth configuration */
+	const AUTH_ENABLED = false;
+	const AUTH_USERS = [
+		['<AUTH-USERNAME>', '<AUTH-PASSWORD>']
+	];
+
 	/* Mail configuration */
 	const MAIL_DOMAIN = '<MAIL-DOMAIN>';
 	const MAIL_ACCOUNT_EXPIRES = 3600; //seconds
