@@ -23,9 +23,14 @@ final class request
 		$this->cookie_array = $_COOKIE;
 		$this->headers = getallheaders();
 		$this->method = $this->get_server_var('REQUEST_METHOD');
-        $this->is_https = str_starts_with($this->get_server_var('SERVER_PROTOCOL'), 'HTTPS');
-        $this->uri = $this->get_server_var('REQUEST_URI');
+		$this->is_https = str_starts_with($this->get_server_var('SERVER_PROTOCOL'), 'HTTPS');
+		$this->uri = $this->get_server_var('REQUEST_URI');
 		$this->path = explode('?', $this->uri)[0];
+	}
+
+	public function get_server_var(string $key)
+	{
+		return $this->server_array[$key] ?? null;
 	}
 
 	public function get_uri(): string
@@ -66,11 +71,6 @@ final class request
 	public function get_headers(): array
 	{
 		return $this->headers;
-	}
-
-	public function get_server_var(string $key)
-	{
-		return $this->server_array[$key] ?? null;
 	}
 
 	public function get_cookie(string $key)

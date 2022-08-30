@@ -6,6 +6,7 @@ Currently redirects to own [RoundCube](https://roundcube.net) instance for recei
 **IMAP support planned soon.**
 
 # Requirements
+
 - Debian 11
 - PHP 8.1
 - MySQL/MariDB server
@@ -25,6 +26,7 @@ Currently redirects to own [RoundCube](https://roundcube.net) instance for recei
 You should set up a cron job that invokes the app/cron/sys_accounts.php file using the PHP interpreter.
 
 Such as:
+
 ```
 * * * * * /usr/bin/php8.1 /var/www/html/temp-mail/app/cron/sys_accounts.php >/dev/null 2>&1
 ```

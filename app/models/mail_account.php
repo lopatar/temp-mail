@@ -27,23 +27,22 @@ final class mail_account
 		return new self($username, $password, $expires);
 	}
 
+	public static function exists(string $username): bool
+	{
+		return connection::get()->query('SELECT id FROM mail WHERE username=?', [$username])->num_rows === 1;
+	}
+
 	public static function get_all(): array
 	{
 		$query = connection::get()->query('SELECT username,password,expires FROM mail');
 		$data = $query->fetch_all(1);
 		$accounts = [];
 
-		foreach ($data as $entry)
-		{
+		foreach ($data as $entry) {
 			$accounts[] = new self($entry['username'], $entry['password'], $entry['expires']);
 		}
 
 		return $accounts;
-	}
-
-	public static function exists(string $username): bool
-	{
-		return connection::get()->query('SELECT id FROM mail WHERE username=?', [$username])->num_rows === 1;
 	}
 
 	public function get_expires_string(): string
@@ -71,8 +70,7 @@ final class mail_account
 	 */
 	public function create_system_user(): void
 	{
-		if ($this->exists_system_user())
-		{
+		if ($this->exists_system_user()) {
 			return;
 		}
 
@@ -93,8 +91,7 @@ final class mail_account
 	 */
 	public function delete(): void
 	{
-		if (!$this->exists_system_user())
-		{
+		if (!$this->exists_system_user()) {
 			return;
 		}
 

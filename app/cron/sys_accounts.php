@@ -11,10 +11,8 @@ connection::init(config::MYSQL_HOST, config::MYSQL_USER, config::MYSQL_PASS, con
 
 $accounts = mail_account::get_all();
 
-foreach ($accounts as $account)
-{
-	if ($account->is_expired())
-	{
+foreach ($accounts as $account) {
+	if ($account->is_expired()) {
 		$account->delete();
 		continue;
 	}

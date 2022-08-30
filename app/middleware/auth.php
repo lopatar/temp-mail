@@ -20,8 +20,7 @@ final class auth implements middleware
 
 		$header = $request->get_header('Authorization');
 
-		if ($header === null)
-		{
+		if ($header === null) {
 			return $this->get_401_response($response);
 		}
 
@@ -33,8 +32,7 @@ final class auth implements middleware
 					return $response; //VALIDATED
 				}
 			}
-		} catch (InvalidArgumentException $ex)
-		{
+		} catch (InvalidArgumentException $ex) {
 			$response->set_status_code(403);
 			return $response;
 		}

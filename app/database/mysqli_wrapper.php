@@ -11,18 +11,21 @@ final class mysqli_wrapper
 {
 	private mysqli $connection;
 
-	public function __construct(string $host, string $username, string $password, string $db_name) {
+	public function __construct(string $host, string $username, string $password, string $db_name)
+	{
 		$this->connection = new mysqli($host, $username, $password, $db_name); //create mysqli object
 	}
 
-	public function __destruct() {
+	public function __destruct()
+	{
 		$this->connection->close(); //close connection on destructor
 	}
 
 	/**
 	 * @throws Exception
 	 */
-	public function query(string $query, array $args = [], string $types = null): mysqli_result|false {
+	public function query(string $query, array $args = [], string $types = null): mysqli_result|false
+	{
 		if ($types === null && $args !== []) { //if we have arguments and no types are specified we act as if they were all strings
 			$types = str_repeat('s', count($args));
 		}
@@ -46,7 +49,8 @@ final class mysqli_wrapper
 		return $result; //return result
 	}
 
-	public function get_connection(): mysqli {
+	public function get_connection(): mysqli
+	{
 		return $this->connection;
 	}
 }

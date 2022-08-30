@@ -22,16 +22,14 @@ final class http_basic_auth_header
 			throw new InvalidArgumentException('Invalid raw header data provided');
 		}
 
-		if (strtolower($header_parts[0]) !== 'basic')
-		{
+		if (strtolower($header_parts[0]) !== 'basic') {
 			throw new InvalidArgumentException('Auth type is not basic');
 		}
 
 		$credentials = base64_decode($header_parts[1]);
 		$credentials = explode(':', $credentials);
 
-		if (count($credentials) !== 2)
-		{
+		if (count($credentials) !== 2) {
 			throw new InvalidArgumentException('Credentials not properly encoded');
 		}
 

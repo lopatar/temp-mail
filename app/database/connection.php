@@ -19,8 +19,7 @@ abstract class connection
 	 */
 	public static function get(): mysqli_wrapper
 	{
-		if (self::$connection === null)
-		{
+		if (self::$connection === null) {
 			throw new Exception('Cannot get connection before calling init()');
 		}
 

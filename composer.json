@@ -1,20 +1,20 @@
 {
-    "name": "lopatar/temp-mail",
-    "autoload": {
-        "psr-4": {
-            "sdk\\": "sdk/",
-            "app\\": "app/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Jiří Lopatář",
-            "email": "jiri@lopatar.me"
-        }
-    ],
-    "require": {
-        "ext-mysqli": "*",
-        "ext-openssl": "*"
-    },
-    "description": "Personal temp mail service"
+  "name": "lopatar/temp-mail",
+  "autoload": {
+    "psr-4": {
+      "sdk\\": "sdk/",
+      "app\\": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Jiří Lopatář",
+      "email": "jiri@lopatar.me"
+    }
+  ],
+  "require": {
+    "ext-mysqli": "*",
+    "ext-openssl": "*"
+  },
+  "description": "Personal temp mail service"
 }

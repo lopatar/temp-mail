@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
-use app\models\mail_account;
 use sdk\http\request;
 use sdk\http\response;
 use sdk\interfaces\controller;
