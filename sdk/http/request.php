@@ -23,7 +23,7 @@ final class request
 		$this->cookie_array = $_COOKIE;
 		$this->headers = getallheaders();
 		$this->method = $this->get_server_var('REQUEST_METHOD');
-		$this->is_https = str_starts_with($this->get_server_var('SERVER_PROTOCOL'), 'HTTPS');
+		$this->is_https = $this->get_server_var('REQUEST_SCHEME') === 'https';
 		$this->uri = $this->get_server_var('REQUEST_URI');
 		$this->path = explode('?', $this->uri)[0];
 	}
