@@ -5,6 +5,7 @@ namespace app\middleware;
 
 use app\config;
 use app\models\http_basic_auth_header;
+use InvalidArgumentException;
 use sdk\http\request;
 use sdk\http\response;
 use sdk\interfaces\middleware;
@@ -24,14 +25,18 @@ final class auth implements middleware
 			return $this->get_401_response($response);
 		}
 
-		$header = new http_basic_auth_header($header);
+		try {
+			$header = new http_basic_auth_header($header);
 
-		foreach (config::AUTH_USERS as $user)
-		{
-			if ($header->validate_credentials($user[0], $user[1]))
-			{
-				return $response; //VALIDATED
+			foreach (config::AUTH_USERS as $user) {
+				if ($header->validate_credentials($user[0], $user[1])) {
+					return $response; //VALIDATED
+				}
 			}
+		} catch (InvalidArgumentException $ex)
+		{
+			$response->set_status_code(403);
+			return $response;
 		}
 
 		return $this->get_401_response($response);

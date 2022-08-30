@@ -10,6 +10,9 @@ final class http_basic_auth_header
 	public readonly string $username;
 	public readonly string $password;
 
+	/**
+	 * @throws InvalidArgumentException
+	 */
 	public function __construct(public readonly string $raw_header)
 	{
 		$header_parts = explode(' ', $this->raw_header);
