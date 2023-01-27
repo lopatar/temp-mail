@@ -95,7 +95,7 @@ final class mail_account
 			return;
 		}
 
-		utils::run_sys_command("/usr/sbin/deluser $this->username");
+		utils::run_sys_command("/usr/sbin/deluser --remove-all-files $this->username");
 		connection::get()->query('DELETE FROM mail WHERE username=?', [$this->username]);
 	}
 }
