@@ -1,9 +1,12 @@
+# THIS REPOSITORY IS ARCHIVED! 
+
+This repository was archived, because it was written in PHP 7.4 using my old SDK. I am going to replace it with a mail manager, managing temp & permanent e-mail addresses! That repository is going to be private.
+ 
 # Temp mail
 
 Personal temporary e-mail service. Written using own [PHP SDK](https://github.com/lopatar/PHP-SDK).
 ****
 Currently redirects to own [RoundCube](https://roundcube.net) instance for receiving/sending mail.
-**IMAP support planned soon.**
 
 # Requirements
 
